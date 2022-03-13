@@ -1,0 +1,81 @@
+- object: Account
+  fields:
+    name:
+      fake: company
+    BillingStreet:
+      fake: street_address
+    BillingCity:
+      fake: city
+    BillingState:
+      fake: state
+    BillingPostalCode:
+      fake: postalcode
+    BillingCountry: United States
+    ShippingCountry: United States
+    Phone:
+      fake: phone_number
+    Fax:
+      fake: phone_number
+    Description:
+      fake: catch_phrase
+    NumberOfEmployees:
+      random_number:
+        min: 1
+        max: 500000
+  friends:
+    - object: Contact
+      count: 2
+      fields:
+        count: 1 # 1 contact for each Account
+      fields:
+        AccountId:
+          reference: Account
+        Salutation:
+          fake: prefix
+        FirstName:
+          fake: first_name
+        LastName:
+          fake: last_name
+        Email:
+          fake: email
+        Phone:
+          fake: phone_number
+        MobilePhone:
+          fake: phone_number
+        Title:
+          fake: job
+        Birthdate:
+          fake.date_between:
+            start_date: -60y
+            end_date: -25y
+      friends:
+        - object: Opportunity
+          count:
+            random_number:
+              min: 1
+              max: 2
+          fields:
+            StageName:
+              random_choice:
+                Prospecting: 50%
+                Qualification: 50%
+            CloseDate: 2023-01-01
+            ContactId:
+              reference: Contact
+            AccountId:
+              reference: Account
+            Name: ${{Contact.FirstName}} ${{Contact.LastName}} Opportunity
+          friends:
+            - object: OpportunityContactRole
+              fields:
+                OpportunityId:
+                  reference: Opportunity
+                ContactId:
+                  reference: Contact
+                Role:
+                  random_choice:
+                    Business User: 20%
+                    Decision Maker: 20%
+                    Economic Buyer: 20%
+                    Economic Decision Maker: 20%
+                    Evaluator: 20%

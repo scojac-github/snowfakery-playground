@@ -1,9 +1,9 @@
-minimum_cumulusci_version: '54.0'
+minimum_cumulusci_version: '3.54.0'
 project:
     name: snowfakery-playground
     package:
         name: snowfakery
-        api_version: '52'
+        api_version: '52.0'
     git:
 
 tasks:
