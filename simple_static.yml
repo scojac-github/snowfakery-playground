@@ -1,0 +1,48 @@
+- object: Account
+  fields:
+    name: 
+      fake: company
+    BillingStreet:
+      fake: street_address
+    BillingCity:
+      fake: city
+    BillingState:
+      fake: state
+    BillingPostalCode:
+      fake: postalcode
+    BillingCountry: United States
+    ShippingCountry: United States
+    Phone:
+      fake: phone_number
+    Fax:
+      fake: phone_number
+    Description:
+      fake: catch_phrase
+    NumberOfEmployees:
+      random_number:
+        min: 1
+        max: 500000
+  friends:
+    - object: Contact
+      count: 2 #create 2 contacts for each account
+      fields:
+        AccountId:
+          reference: Account
+        Salutation:
+          fake: prefix
+        FirstName:
+          fake: first_name
+        LastName:
+          fake: last_name
+        Email:
+          fake: email
+        Phone:
+          fake: phone_number
+        MobilePhone:
+          fake: phone_number
+        Title:
+          fake: job
+        Birthdate:
+          fake.date_between:
+            start_date: -60y
+            end_date: -25y

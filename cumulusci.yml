@@ -1,0 +1,20 @@
+minimum_cumulusci_version: '54.0'
+project:
+    name: snowfakery-playground
+    package:
+        name: snowfakery
+        api_version: '52'
+    git:
+
+tasks:
+    robot:
+        options:
+            suites: robot/snowfakery-playground/tests
+            options:
+                outputdir: robot/snowfakery-playground/results
+
+    robot_testdoc:
+        options:
+            path: robot/snowfakery-playground/tests
+            output: robot/snowfakery-playground/doc/snowfakery-playground_tests.html
+
