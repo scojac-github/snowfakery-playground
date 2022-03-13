@@ -62,3 +62,6 @@ Example Code `test_account.yml`:
 
 `$ cci task run generate_and_load_from_yaml -o generator_yaml account.yml --org org-name-goes-here`
 
+# Generate CSV file from yml
+
+`$ snowfakery test_account.yml --output-format csv`
