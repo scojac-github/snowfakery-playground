@@ -12,7 +12,7 @@ After `pipx` is installed, install CumulusCI, which includes snowfakery
 `$ git init`
 `$ cci project init`
 
-# Connect to an org
+# Connect to an Org
 
 Connect to a custom domain using `--login-url`
 
@@ -58,7 +58,7 @@ Example Code `test_account.yml`:
 
 `$ snowfakery --output-format JSON --output-file test_account.json test_account.yml`
 
-# Run Script, Creat Records in Salesforce
+# Run Script, Create Records in Salesforce
 
 `$ cci task run generate_and_load_from_yaml -o generator_yaml account.yml --org org-name-goes-here`
 
